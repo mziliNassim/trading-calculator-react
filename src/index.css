@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap");
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+}
+a {
+  text-decoration: none;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.navBar {
+  box-shadow: 0px 0px 3px #0004;
+}
+.brand {
+  font-family: "Playwrite GB S", cursive;
+  font-weight: 600;
+  font-size: 25px;
+  font-style: italic;
+  color: blue;
+}
+.navTargit {
+  font-weight: 600;
+  font-size: 20px;
+  font-style: italic;
+  color: #000;
+}
+.navTargit:hover,
+.navTargit.active {
+  text-decoration: underline;
+}
+.eria-title {
+  font-family: "Playwrite GB S", cursive;
+  font-weight: 600;
+  font-size: 25px;
+  font-style: italic;
+  color: #000;
+  margin: 10px auto 30px;
+}
+.form {
+  box-shadow: 0px 5px 10px #0004;
+  border-radius: 5px;
+  padding: 30px;
+  width: 500px;
+}
+
+th,
+td {
+  width: 200px;
+  border: 1px solid;
+  text-align: center;
+}
+
+.notfound {
+  h1 {
+    font-size: 7.5em;
+    margin: 15px 0px;
+    font-weight: bold;
+  }
+  h2 {
+    font-weight: bold;
+  }
+  .button {
+    background: transparent;
+    border: 3px solid blue;
+    border-radius: 10px;
+    color: blue;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 5px 50px;
+    font-size: 20px;
+  }
+  .button:hover {
+    background: blue;
+    color: #fff;
+    transition: 0.8s;
+  }
+}
