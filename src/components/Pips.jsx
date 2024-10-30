@@ -30,16 +30,12 @@ const Pips = () => {
     e.preventDefault();
     if (checkFields()) {
       let pips;
-      if (formulaire.pair == "US100" || formulaire.pair == "US30") {
-        pips = Math.round(formulaire.price1 - formulaire.price2);
-      } else if (
-        formulaire.pair == "XAU/USD" ||
-        formulaire.pair == "US500" ||
-        formulaire.pair == "JPY Pairs"
-      ) {
-        pips = Math.round((formulaire.price1 - formulaire.price2) * 10);
-      } else if (formulaire.pair == "Forex") {
-        pips = Math.round((formulaire.price1 - formulaire.price2) * 10000);
+      if (formulaire.pair == "XAU/USD") {
+        pips = Math.abs(
+          Math.round((formulaire.price1 - formulaire.price2) * 10)
+        );
+      } else if (formulaire.pair == "US100" || formulaire.pair == "US30") {
+        pips = Math.abs(Math.round(formulaire.price1 - formulaire.price2));
       }
       setFormulaire({ ...formulaire, pips });
       setResultsShow(true);

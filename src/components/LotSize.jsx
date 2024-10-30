@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { pairs } from "../db/pairs.js";
-import { Button, Container, Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import ResultsLotSize from "./results/ResultsLotSize";
 
 const LotSize = () => {
@@ -32,16 +32,22 @@ const LotSize = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    let resultt;
     if (checkFields()) {
       const moneyRisk = (formulaire.balance * formulaire.risk) / 100;
       if (formulaire.pair === "XAU/USD") {
-        const resultt = {
+        resultt = {
           moneyRisk,
           loteSize: moneyRisk / (formulaire.sl * 10),
         };
-        setResult(resultt);
-        setResultsShow(true);
+      } else if (formulaire.pair === "US100" || formulaire.pair === "US30") {
+        resultt = {
+          moneyRisk,
+          loteSize: moneyRisk / formulaire.sl,
+        };
       }
+      setResult(resultt);
+      setResultsShow(true);
     }
   };
 

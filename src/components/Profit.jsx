@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 
+import ResultsProfit from "./results/ResultsProfit";
+
 import { pairs } from "../db/pairs";
 
 const Profit = () => {
   const [resultsShow, setResultsShow] = useState(false);
+  const [profit, setProfit] = useState();
   const [formulaire, setFormulaire] = useState({
     pair: "XAU/USD",
+    lotsize: 0.01,
+    pips: 50,
   });
 
   const handleChange = (e) => {
@@ -14,7 +19,27 @@ const Profit = () => {
     setFormulaire({ ...formulaire, [name]: value });
   };
 
-  const handleSubmit = () => {};
+  const checkFields = () => {
+    if (formulaire.pair == "") alert("Invalid Pair!");
+    else if (formulaire.lotsize == "") alert("Invalid LotSize!");
+    else if (formulaire.pips == "") alert("Invalid Pips!");
+    else return true;
+    return false;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (checkFields()) {
+      let profitt;
+      if (formulaire.pair == "XAU/USD") {
+        profitt = formulaire.lotsize * formulaire.pips * 10;
+      } else if (formulaire.pair == "US100" || formulaire.pair == "US30") {
+        profitt = formulaire.lotsize * formulaire.pips;
+      }
+      setProfit(profitt);
+      setResultsShow(true);
+    }
+  };
 
   return (
     <>
@@ -43,6 +68,28 @@ const Profit = () => {
             </Form.Select>
           </Form.Group>
 
+          <Form.Group className="mb-3" controlId="formBasicLotSize">
+            <Form.Label>LotSize</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="0.02"
+              name="lotsize"
+              value={formulaire.lotsize}
+              onChange={handleChange}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicPips">
+            <Form.Label>Pips</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="50"
+              name="pips"
+              value={formulaire.pips}
+              onChange={handleChange}
+            />
+          </Form.Group>
+
           <div className="d-flex justify-content-end">
             <Button variant="primary" type="submit">
               Calculate
@@ -50,6 +97,13 @@ const Profit = () => {
           </div>
         </Form>
       </div>
+
+      <ResultsProfit
+        formulaire={formulaire}
+        profit={profit}
+        show={resultsShow}
+        onHide={() => setResultsShow(false)}
+      />
     </>
   );
 };
