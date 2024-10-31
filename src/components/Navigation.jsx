@@ -3,10 +3,6 @@ import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Container, Navbar, Nav, Dropdown } from "react-bootstrap";
 
-import user from "../img/user.png";
-
-// import * as Icon from "react-bootstrap-icons";
-
 const Navigation = () => {
   return (
     <>

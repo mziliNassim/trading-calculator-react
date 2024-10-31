@@ -35,6 +35,8 @@ const Profit = () => {
         profitt = formulaire.lotsize * formulaire.pips * 10;
       } else if (formulaire.pair == "US100" || formulaire.pair == "US30") {
         profitt = formulaire.lotsize * formulaire.pips;
+      } else if (formulaire.pair == "JPY Pairs") {
+        profitt = formulaire.lotsize * formulaire.pips * 6.53;
       }
       setProfit(profitt);
       setResultsShow(true);
