@@ -36,6 +36,14 @@ const Pips = () => {
         );
       } else if (formulaire.pair == "US100" || formulaire.pair == "US30") {
         pips = Math.abs(Math.round(formulaire.price1 - formulaire.price2));
+      } else if (formulaire.pair == "Forex Pairs") {
+        pips = Math.abs(
+          Math.round((formulaire.price1 - formulaire.price2) * 10000)
+        );
+      } else if (formulaire.pair == "JPY Pairs") {
+        pips = Math.abs(
+          Math.round((formulaire.price1 - formulaire.price2) * 100)
+        );
       }
       setFormulaire({ ...formulaire, pips });
       setResultsShow(true);

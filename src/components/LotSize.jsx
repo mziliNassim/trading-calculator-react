@@ -45,6 +45,16 @@ const LotSize = () => {
           moneyRisk,
           loteSize: moneyRisk / formulaire.sl,
         };
+      } else if (formulaire.pair === "Forex Pairs") {
+        resultt = {
+          moneyRisk,
+          loteSize: moneyRisk / formulaire.sl / 10,
+        };
+      } else if (formulaire.pair === "JPY Pairs") {
+        resultt = {
+          moneyRisk,
+          loteSize: moneyRisk / (formulaire.sl * 6.53),
+        };
       }
       setResult(resultt);
       setResultsShow(true);

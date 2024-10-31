@@ -31,7 +31,7 @@ const Profit = () => {
     e.preventDefault();
     if (checkFields()) {
       let profitt;
-      if (formulaire.pair == "XAU/USD") {
+      if (formulaire.pair == "XAU/USD" || formulaire.pair == "Forex Pairs") {
         profitt = formulaire.lotsize * formulaire.pips * 10;
       } else if (formulaire.pair == "US100" || formulaire.pair == "US30") {
         profitt = formulaire.lotsize * formulaire.pips;

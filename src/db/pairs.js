@@ -3,6 +3,6 @@ export const pairs = [
   "US100",
   "US30",
   // "US500",
-  // "Forex",
-  // "JPY Pairs",
+  "Forex Pairs",
+  "JPY Pairs",
 ];
