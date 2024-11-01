@@ -41,7 +41,7 @@ A Simple Trading Calculator Web Application is a user-friendly tool for traders 
   ``` bash
     cd trading-calculator-react
 
-    git init
+    git install
   ```
 
 4 - Start the project
