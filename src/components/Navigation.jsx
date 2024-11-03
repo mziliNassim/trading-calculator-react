@@ -1,12 +1,25 @@
 import React, { useEffect, useState } from "react";
 
-import { Link, NavLink } from "react-router-dom";
-import { Container, Navbar, Nav, Dropdown } from "react-bootstrap";
+import { Form, Link, NavLink } from "react-router-dom";
+import {
+  Container,
+  Navbar,
+  Nav,
+  Dropdown,
+  Offcanvas,
+  Button,
+  NavDropdown,
+} from "react-bootstrap";
 
 const Navigation = () => {
+  const expand = "md";
   return (
     <>
-      <Navbar expand="sm" className="bg-body-tertiary mb-5 navBar">
+      <Navbar
+        key={expand}
+        expand={expand}
+        className="bg-body-tertiary mb-4 navBar"
+      >
         <Container>
           <Navbar.Brand className="brand">
             <Link to="/" className="Brand brand">
@@ -14,23 +27,35 @@ const Navigation = () => {
             </Link>
           </Navbar.Brand>
 
+          <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
+
           <Navbar.Offcanvas
-            id={`offcanvasNavbar-expand-sm`}
-            aria-labelledby={`offcanvasNavbarLabel-expand-sm`}
+            id={`offcanvasNavbar-expand-${expand}`}
+            aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
             placement="end"
           >
-            <Nav className="justify-content-end align-items-center flex-grow-1 pe-3">
-              <NavLink to="/lotsize" className="mx-3 navTargit">
-                LotSize
-              </NavLink>
-              <NavLink to="/pips" className="mx-3 navTargit">
-                Pips
-              </NavLink>
-              <NavLink to="/profit" className="mx-3 navTargit">
-                Profit
-              </NavLink>
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title
+                className="Brand brand"
+                id={`offcanvasNavbarLabel-expand-${expand}`}
+              >
+                Trading Calculator
+              </Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              <Nav className="align-items-center justify-content-end flex-grow-1 pe-3">
+                <NavLink to="/lotsize" className="mx-3 navTargit">
+                  LotSize
+                </NavLink>
+                <NavLink to="/pips" className="mx-3 navTargit">
+                  Pips
+                </NavLink>
+                <NavLink to="/profit" className="mx-3 navTargit">
+                  Profit
+                </NavLink>
+              </Nav>
 
-              <Dropdown className="">
+              <Dropdown className="text-center">
                 <Dropdown.Toggle
                   variant="transparent"
                   className="user"
@@ -39,8 +64,7 @@ const Navigation = () => {
                   <i class="bi bi-person-circle user"></i>
                 </Dropdown.Toggle>
 
-                <Dropdown.Menu>
-                  {/* IG */}
+                <Dropdown.Menu className="">
                   <Dropdown.Item
                     href="https://www.instagram.com/nassim__dev/"
                     target="_blanc"
@@ -50,7 +74,6 @@ const Navigation = () => {
                     <span>Instagram</span>
                   </Dropdown.Item>
 
-                  {/* IG (BH) */}
                   <Dropdown.Item
                     href="https://www.instagram.com/bugs_hunting"
                     target="_blanc"
@@ -60,7 +83,6 @@ const Navigation = () => {
                     <span>Instagram (BH)</span>
                   </Dropdown.Item>
 
-                  {/* Github */}
                   <Dropdown.Item
                     href="https://github.com/mziliNassim"
                     target="_blanc"
@@ -70,7 +92,6 @@ const Navigation = () => {
                     <span>Github</span>
                   </Dropdown.Item>
 
-                  {/* linkedin */}
                   <Dropdown.Item
                     href="https://www.linkedin.com/in/mzilinassim/"
                     target="_blanc"
@@ -80,17 +101,6 @@ const Navigation = () => {
                     <span>Linkedin</span>
                   </Dropdown.Item>
 
-                  {/* Discord */}
-                  {/* <Dropdown.Item
-                    href="https://discord.com/invite/wkaYHKT7"
-                    target="_blanc"
-                    className="d-flex align-items-center gap-3"
-                  >
-                    <i class="bi bi-discord"></i>
-                    <span>Discord</span>
-                  </Dropdown.Item> */}
-
-                  {/* Youtube */}
                   <Dropdown.Item
                     href="https://www.youtube.com/@bugshunting609"
                     target="_blanc"
@@ -102,7 +112,6 @@ const Navigation = () => {
 
                   <Dropdown.Divider />
 
-                  {/* Linktr.ee */}
                   <Dropdown.Item
                     href="https://linktr.ee/mzilinassim"
                     target="_blanc"
@@ -113,7 +122,7 @@ const Navigation = () => {
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
-            </Nav>
+            </Offcanvas.Body>
           </Navbar.Offcanvas>
         </Container>
       </Navbar>
