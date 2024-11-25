@@ -22,10 +22,10 @@ const LotSize = () => {
   };
 
   const checkFields = () => {
-    if (formulaire.pair == "") alert("Invalid Pair!");
-    else if (formulaire.balance == "") alert("Invalid Balnce!");
-    else if (formulaire.risk == "") alert("Invalid Risk!");
-    else if (formulaire.sl == "") alert("Invalid Sl!");
+    if (formulaire.pair === "") alert("Invalid Pair!");
+    else if (formulaire.balance === "") alert("Invalid Balnce!");
+    else if (formulaire.risk === "") alert("Invalid Risk!");
+    else if (formulaire.sl === "") alert("Invalid Sl!");
     else return true;
     return false;
   };

@@ -20,9 +20,9 @@ const Profit = () => {
   };
 
   const checkFields = () => {
-    if (formulaire.pair == "") alert("Invalid Pair!");
-    else if (formulaire.lotsize == "") alert("Invalid LotSize!");
-    else if (formulaire.pips == "") alert("Invalid Pips!");
+    if (formulaire.pair === "") alert("Invalid Pair!");
+    else if (formulaire.lotsize === "") alert("Invalid LotSize!");
+    else if (formulaire.pips === "") alert("Invalid Pips!");
     else return true;
     return false;
   };
@@ -31,11 +31,11 @@ const Profit = () => {
     e.preventDefault();
     if (checkFields()) {
       let profitt;
-      if (formulaire.pair == "XAU/USD" || formulaire.pair == "Forex Pairs") {
+      if (formulaire.pair === "XAU/USD" || formulaire.pair === "Forex Pairs") {
         profitt = formulaire.lotsize * formulaire.pips * 10;
-      } else if (formulaire.pair == "US100" || formulaire.pair == "US30") {
+      } else if (formulaire.pair === "US100" || formulaire.pair === "US30") {
         profitt = formulaire.lotsize * formulaire.pips;
-      } else if (formulaire.pair == "JPY Pairs") {
+      } else if (formulaire.pair === "JPY Pairs") {
         profitt = formulaire.lotsize * formulaire.pips * 6.53;
       }
       setProfit(profitt);

@@ -19,9 +19,9 @@ const Pips = () => {
   };
 
   const checkFields = () => {
-    if (formulaire.pair == "") alert("Invalid Pair!");
-    else if (formulaire.price1 == "") alert("Invalid Price 1!");
-    else if (formulaire.price2 == "") alert("Invalid Price 2!");
+    if (formulaire.pair === "") alert("Invalid Pair!");
+    else if (formulaire.price1 === "") alert("Invalid Price 1!");
+    else if (formulaire.price2 === "") alert("Invalid Price 2!");
     else return true;
     return false;
   };
@@ -30,17 +30,17 @@ const Pips = () => {
     e.preventDefault();
     if (checkFields()) {
       let pips;
-      if (formulaire.pair == "XAU/USD") {
+      if (formulaire.pair === "XAU/USD") {
         pips = Math.abs(
           Math.round((formulaire.price1 - formulaire.price2) * 10)
         );
-      } else if (formulaire.pair == "US100" || formulaire.pair == "US30") {
+      } else if (formulaire.pair === "US100" || formulaire.pair === "US30") {
         pips = Math.abs(Math.round(formulaire.price1 - formulaire.price2));
-      } else if (formulaire.pair == "Forex Pairs") {
+      } else if (formulaire.pair === "Forex Pairs") {
         pips = Math.abs(
           Math.round((formulaire.price1 - formulaire.price2) * 10000)
         );
-      } else if (formulaire.pair == "JPY Pairs") {
+      } else if (formulaire.pair === "JPY Pairs") {
         pips = Math.abs(
           Math.round((formulaire.price1 - formulaire.price2) * 100)
         );

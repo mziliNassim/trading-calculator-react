@@ -5,29 +5,16 @@ const NotFound = () => {
   return (
     <>
       <main>
-        <div class="container">
-          <div class="notfound">
-            <div class="row">
-              <div class="col-md-6 align-self-center">
+        <div className="container">
+          <div className="notfound pt-5">
+            <div className="row my-5">
+              <div className="col-md-6 align-self-center">
                 <svg version="1.1" viewBox="0 0 800 600">
-                  <g>
-                    <defs>
-                      <clipPath id="GlassClip">
-                        <path
-                          d="M380.857,346.164c-1.247,4.651-4.668,8.421-9.196,10.06c-9.332,3.377-26.2,7.817-42.301,3.5
-                s-28.485-16.599-34.877-24.192c-3.101-3.684-4.177-8.66-2.93-13.311l7.453-27.798c0.756-2.82,3.181-4.868,6.088-5.13
-                c6.755-0.61,20.546-0.608,41.785,5.087s33.181,12.591,38.725,16.498c2.387,1.682,3.461,4.668,2.705,7.488L380.857,346.164z"
-                        />
-                      </clipPath>
-                      <clipPath id="cordClip">
-                        <rect width="800" height="600" />
-                      </clipPath>
-                    </defs>
-
+                  <g className="text-light">
                     <g id="planet">
                       <circle
                         fill="none"
-                        stroke="#0E0620"
+                        stroke="#fff"
                         stroke-width="3"
                         stroke-miterlimit="10"
                         cx="572.859"
@@ -38,7 +25,7 @@ const NotFound = () => {
                       <circle
                         id="craterBig"
                         fill="none"
-                        stroke="#0E0620"
+                        stroke="#fff"
                         stroke-width="3"
                         stroke-miterlimit="10"
                         cx="548.891"
@@ -49,7 +36,7 @@ const NotFound = () => {
                       <circle
                         id="craterSmall"
                         fill="none"
-                        stroke="#0E0620"
+                        stroke="#fff"
                         stroke-width="3"
                         stroke-miterlimit="10"
                         cx="591.743"
@@ -59,7 +46,7 @@ const NotFound = () => {
                       <path
                         id="ring"
                         fill="none"
-                        stroke="#0E0620"
+                        stroke="#fff"
                         stroke-width="3"
                         stroke-linecap="round"
                         stroke-miterlimit="10"
@@ -72,7 +59,7 @@ const NotFound = () => {
                         id="ringShadow"
                         opacity="0.5"
                         fill="none"
-                        stroke="#0E0620"
+                        stroke="#fff"
                         stroke-width="3"
                         stroke-linecap="round"
                         stroke-miterlimit="10"
@@ -85,7 +72,7 @@ const NotFound = () => {
                         <g>
                           <line
                             fill="none"
-                            stroke="#0E0620"
+                            stroke="#fff"
                             stroke-width="3"
                             stroke-linecap="round"
                             stroke-miterlimit="10"
@@ -97,7 +84,7 @@ const NotFound = () => {
 
                           <line
                             fill="none"
-                            stroke="#0E0620"
+                            stroke="#fff"
                             stroke-width="3"
                             stroke-linecap="round"
                             stroke-miterlimit="10"
@@ -110,7 +97,7 @@ const NotFound = () => {
                         <g>
                           <line
                             fill="none"
-                            stroke="#0E0620"
+                            stroke="#fff"
                             stroke-width="3"
                             stroke-linecap="round"
                             stroke-miterlimit="10"
@@ -122,7 +109,7 @@ const NotFound = () => {
 
                           <line
                             fill="none"
-                            stroke="#0E0620"
+                            stroke="#fff"
                             stroke-width="3"
                             stroke-linecap="round"
                             stroke-miterlimit="10"
@@ -135,7 +122,7 @@ const NotFound = () => {
                         <g>
                           <line
                             fill="none"
-                            stroke="#0E0620"
+                            stroke="#fff"
                             stroke-width="3"
                             stroke-linecap="round"
                             stroke-miterlimit="10"
@@ -147,7 +134,7 @@ const NotFound = () => {
 
                           <line
                             fill="none"
-                            stroke="#0E0620"
+                            stroke="#fff"
                             stroke-width="3"
                             stroke-linecap="round"
                             stroke-miterlimit="10"
@@ -160,7 +147,7 @@ const NotFound = () => {
                         <g>
                           <line
                             fill="none"
-                            stroke="#0E0620"
+                            stroke="#fff"
                             stroke-width="3"
                             stroke-linecap="round"
                             stroke-miterlimit="10"
@@ -172,7 +159,7 @@ const NotFound = () => {
 
                           <line
                             fill="none"
-                            stroke="#0E0620"
+                            stroke="#fff"
                             stroke-width="3"
                             stroke-linecap="round"
                             stroke-miterlimit="10"
@@ -187,7 +174,7 @@ const NotFound = () => {
                         <g>
                           <line
                             fill="none"
-                            stroke="#0E0620"
+                            stroke="#fff"
                             stroke-width="3"
                             stroke-linecap="round"
                             stroke-miterlimit="10"
@@ -199,7 +186,7 @@ const NotFound = () => {
 
                           <line
                             fill="none"
-                            stroke="#0E0620"
+                            stroke="#fff"
                             stroke-width="3"
                             stroke-linecap="round"
                             stroke-miterlimit="10"
@@ -212,7 +199,7 @@ const NotFound = () => {
                         <g>
                           <line
                             fill="none"
-                            stroke="#0E0620"
+                            stroke="#fff"
                             stroke-width="3"
                             stroke-linecap="round"
                             stroke-miterlimit="10"
@@ -224,7 +211,7 @@ const NotFound = () => {
 
                           <line
                             fill="none"
-                            stroke="#0E0620"
+                            stroke="#fff"
                             stroke-width="3"
                             stroke-linecap="round"
                             stroke-miterlimit="10"
@@ -237,7 +224,7 @@ const NotFound = () => {
                         <g>
                           <line
                             fill="none"
-                            stroke="#0E0620"
+                            stroke="#fff"
                             stroke-width="3"
                             stroke-linecap="round"
                             stroke-miterlimit="10"
@@ -249,7 +236,7 @@ const NotFound = () => {
 
                           <line
                             fill="none"
-                            stroke="#0E0620"
+                            stroke="#fff"
                             stroke-width="3"
                             stroke-linecap="round"
                             stroke-miterlimit="10"
@@ -262,7 +249,7 @@ const NotFound = () => {
                         <g>
                           <line
                             fill="none"
-                            stroke="#0E0620"
+                            stroke="#fff"
                             stroke-width="3"
                             stroke-linecap="round"
                             stroke-miterlimit="10"
@@ -274,7 +261,7 @@ const NotFound = () => {
 
                           <line
                             fill="none"
-                            stroke="#0E0620"
+                            stroke="#fff"
                             stroke-width="3"
                             stroke-linecap="round"
                             stroke-miterlimit="10"
@@ -287,7 +274,7 @@ const NotFound = () => {
                         <g>
                           <line
                             fill="none"
-                            stroke="#0E0620"
+                            stroke="#fff"
                             stroke-width="3"
                             stroke-linecap="round"
                             stroke-miterlimit="10"
@@ -299,7 +286,7 @@ const NotFound = () => {
 
                           <line
                             fill="none"
-                            stroke="#0E0620"
+                            stroke="#fff"
                             stroke-width="3"
                             stroke-linecap="round"
                             stroke-miterlimit="10"
@@ -312,7 +299,7 @@ const NotFound = () => {
                         <g>
                           <line
                             fill="none"
-                            stroke="#0E0620"
+                            stroke="#fff"
                             stroke-width="3"
                             stroke-linecap="round"
                             stroke-miterlimit="10"
@@ -324,7 +311,7 @@ const NotFound = () => {
 
                           <line
                             fill="none"
-                            stroke="#0E0620"
+                            stroke="#fff"
                             stroke-width="3"
                             stroke-linecap="round"
                             stroke-miterlimit="10"
@@ -338,7 +325,7 @@ const NotFound = () => {
                       <g id="circlesBig">
                         <circle
                           fill="none"
-                          stroke="#0E0620"
+                          stroke="#fff"
                           stroke-width="3"
                           stroke-linecap="round"
                           stroke-miterlimit="10"
@@ -349,7 +336,7 @@ const NotFound = () => {
 
                         <circle
                           fill="none"
-                          stroke="#0E0620"
+                          stroke="#fff"
                           stroke-width="3"
                           stroke-linecap="round"
                           stroke-miterlimit="10"
@@ -360,7 +347,7 @@ const NotFound = () => {
 
                         <circle
                           fill="none"
-                          stroke="#0E0620"
+                          stroke="#fff"
                           stroke-width="3"
                           stroke-linecap="round"
                           stroke-miterlimit="10"
@@ -371,7 +358,7 @@ const NotFound = () => {
 
                         <circle
                           fill="none"
-                          stroke="#0E0620"
+                          stroke="#fff"
                           stroke-width="3"
                           stroke-linecap="round"
                           stroke-miterlimit="10"
@@ -382,7 +369,7 @@ const NotFound = () => {
 
                         <circle
                           fill="none"
-                          stroke="#0E0620"
+                          stroke="#fff"
                           stroke-width="3"
                           stroke-linecap="round"
                           stroke-miterlimit="10"
@@ -393,7 +380,7 @@ const NotFound = () => {
 
                         <circle
                           fill="none"
-                          stroke="#0E0620"
+                          stroke="#fff"
                           stroke-width="3"
                           stroke-linecap="round"
                           stroke-miterlimit="10"
@@ -404,7 +391,7 @@ const NotFound = () => {
 
                         <circle
                           fill="none"
-                          stroke="#0E0620"
+                          stroke="#fff"
                           stroke-width="3"
                           stroke-linecap="round"
                           stroke-miterlimit="10"
@@ -415,7 +402,7 @@ const NotFound = () => {
 
                         <circle
                           fill="none"
-                          stroke="#0E0620"
+                          stroke="#fff"
                           stroke-width="3"
                           stroke-linecap="round"
                           stroke-miterlimit="10"
@@ -426,43 +413,38 @@ const NotFound = () => {
                       </g>
                       <g id="circlesSmall">
                         <circle
-                          fill="#0E0620"
+                          fill="#fff"
                           cx="549.879"
                           cy="296.402"
                           r="2.651"
                         />
+                        <circle fill="#fff" cx="253.29" cy="229.24" r="2.651" />
                         <circle
-                          fill="#0E0620"
-                          cx="253.29"
-                          cy="229.24"
-                          r="2.651"
-                        />
-                        <circle
-                          fill="#0E0620"
+                          fill="#fff"
                           cx="434.824"
                           cy="263.931"
                           r="2.651"
                         />
                         <circle
-                          fill="#0E0620"
+                          fill="#fff"
                           cx="183.708"
                           cy="544.176"
                           r="2.651"
                         />
                         <circle
-                          fill="#0E0620"
+                          fill="#fff"
                           cx="382.515"
                           cy="530.923"
                           r="2.651"
                         />
                         <circle
-                          fill="#0E0620"
+                          fill="#fff"
                           cx="130.693"
                           cy="305.608"
                           r="2.651"
                         />
                         <circle
-                          fill="#0E0620"
+                          fill="#fff"
                           cx="480.296"
                           cy="477.014"
                           r="2.651"
@@ -473,7 +455,7 @@ const NotFound = () => {
                       <path
                         id="cord"
                         fill="none"
-                        stroke="#0E0620"
+                        stroke="#fff"
                         stroke-width="3"
                         stroke-linecap="round"
                         stroke-linejoin="round"
@@ -705,15 +687,16 @@ const NotFound = () => {
                   </g>
                 </svg>
               </div>
-              <div class="col-md-6 align-self-center">
-                <h1>404</h1>
+
+              <div className="col-md-6 align-self-center text-light d-flex flex-column gap-3">
+                <h1 className="">404</h1>
                 <h2>UH OH! You're lost.</h2>
                 <p>
                   The page you are looking for does not exist. How you got here
                   is a mystery. But you can click the button below to go back to
                   the home page.
                 </p>
-                <Link to="/" class="button">
+                <Link to="/" className="button btn btn-danger w-25">
                   Home page
                 </Link>
               </div>
