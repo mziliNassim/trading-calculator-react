@@ -1,8 +1,10 @@
 # Simple Trading Calculator `Web-Application`
 
-[Website Preview](https://nassimtradingcalculator.netlify.app/)
+[Website Preview](https://calculatortrading.nassim.online/)
 
 A Simple Trading Calculator Web Application is a user-friendly tool for traders to efficiently calculate essential trading metrics, aiding in accurate trade planning and risk management.
+
+![App_Pic](https://nassim.online/static/media/tradingcalculator.b105fb41541467567589.png)
 
 ## Features
 
