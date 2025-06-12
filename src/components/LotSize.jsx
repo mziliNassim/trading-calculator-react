@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { pairs } from "../db/pairs.js";
-import { Button, Form } from "react-bootstrap";
-import ResultsLotSize from "./results/ResultsLotSize";
+import { toast } from "sonner";
+
+import { pairs } from "../data/pairs";
 
 const LotSize = () => {
   const [resultsShow, setResultsShow] = useState(false);
+  const [isCalculating, setIsCalculating] = useState(false);
   const [formulaire, setFormulaire] = useState({
     pair: "XAU/USD",
     balance: 1000,
@@ -22,119 +23,309 @@ const LotSize = () => {
   };
 
   const checkFields = () => {
-    if (formulaire.pair === "") alert("Invalid Pair!");
-    else if (formulaire.balance === "") alert("Invalid Balnce!");
-    else if (formulaire.risk === "") alert("Invalid Risk!");
-    else if (formulaire.sl === "") alert("Invalid Sl!");
-    else return true;
-    return false;
+    if (!formulaire.pair) {
+      toast.warning("Please select a currency pair!", {
+        action: { label: "x" },
+      });
+      return false;
+    }
+    if (!formulaire.balance || formulaire.balance <= 0) {
+      toast.warning("Please enter a valid account balance!", {
+        action: { label: "x" },
+      });
+      return false;
+    }
+    if (!formulaire.risk || formulaire.risk <= 0) {
+      toast.warning("Please enter a valid risk percentage!", {
+        action: { label: "x" },
+      });
+      return false;
+    }
+    if (!formulaire.sl || formulaire.sl <= 0) {
+      toast.warning("Please enter a valid stop-loss value!", {
+        action: { label: "x" },
+      });
+      return false;
+    }
+    return true;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    let resultt;
+  const handleSubmit = () => {
     if (checkFields()) {
-      const moneyRisk = (formulaire.balance * formulaire.risk) / 100;
-      if (formulaire.pair === "XAU/USD") {
-        resultt = {
-          moneyRisk,
-          loteSize: moneyRisk / (formulaire.sl * 10),
-        };
-      } else if (formulaire.pair === "US100" || formulaire.pair === "US30") {
-        resultt = {
-          moneyRisk,
-          loteSize: moneyRisk / formulaire.sl,
-        };
-      } else if (formulaire.pair === "Forex Pairs") {
-        resultt = {
-          moneyRisk,
-          loteSize: moneyRisk / formulaire.sl / 10,
-        };
-      } else if (formulaire.pair === "JPY Pairs") {
-        resultt = {
-          moneyRisk,
-          loteSize: moneyRisk / (formulaire.sl * 6.53),
-        };
-      }
-      setResult(resultt);
-      setResultsShow(true);
+      setIsCalculating(true);
+
+      // Simulate calculation delay for better UX
+      setTimeout(() => {
+        const moneyRisk = (formulaire.balance * formulaire.risk) / 100;
+        let calculatedResult;
+
+        if (formulaire.pair === "XAU/USD") {
+          calculatedResult = {
+            moneyRisk,
+            loteSize: moneyRisk / (formulaire.sl * 10),
+          };
+        } else if (formulaire.pair === "US100" || formulaire.pair === "US30") {
+          calculatedResult = {
+            moneyRisk,
+            loteSize: moneyRisk / formulaire.sl,
+          };
+        } else if (formulaire.pair === "Forex Pairs") {
+          calculatedResult = {
+            moneyRisk,
+            loteSize: moneyRisk / formulaire.sl / 10,
+          };
+        } else if (formulaire.pair === "JPY Pairs") {
+          calculatedResult = {
+            moneyRisk,
+            loteSize: moneyRisk / (formulaire.sl * 6.53),
+          };
+        } else {
+          // Default forex calculation
+          calculatedResult = {
+            moneyRisk,
+            loteSize: moneyRisk / (formulaire.sl * 10),
+          };
+        }
+
+        setResult(calculatedResult);
+        setResultsShow(true);
+        setIsCalculating(false);
+      }, 800);
     }
+  };
+
+  const resetForm = () => {
+    setFormulaire({
+      pair: "XAU/USD",
+      balance: 1000,
+      risk: 1,
+      sl: 50,
+    });
+    setResultsShow(false);
+    setResult({ moneyRisk: 0, loteSize: 0 });
   };
 
   return (
     <>
-      <div className="d-flex flex-column align-items-center justify-content-center main-container">
-        <Form className="form" onSubmit={handleSubmit}>
-          <h2 className="text-center eria-title">LotSize Calculator</h2>
-          <Form.Group className="mb-3" controlId="formBasicCurrency">
-            <Form.Label>Currency Pair</Form.Label>
-            <Form.Select
-              aria-label="Default select example"
-              name="pair"
-              value={formulaire.pair}
-              onChange={handleChange}
-            >
-              <option selected disabled>
-                select Currency Or Pair
-              </option>
-              {pairs.length > 0 &&
-                pairs.map((pair, i) => {
-                  return (
-                    <option key={i} value={pair}>
-                      {pair}
-                    </option>
-                  );
-                })}
-            </Form.Select>
-          </Form.Group>
+      <div className="calculator-container lotsize  py-5">
+        {/* Floating Background Elements */}
+        <div className="floating-elements">
+          <div className="floating-icon">💰</div>
+          <div className="floating-icon">📊</div>
+          <div className="floating-icon">💹</div>
+          <div className="floating-icon">🎯</div>
+          <div className="floating-icon">⚡</div>
+          <div className="floating-icon">🔥</div>
+        </div>
 
-          <Form.Group className="mb-3" controlId="formBasicBalance">
-            <Form.Label>Account Balance, $</Form.Label>
-            <Form.Control
-              type="number"
-              placeholder="100000"
-              name="balance"
-              value={formulaire.balance}
-              onChange={handleChange}
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicRisk">
-            <Form.Label>Risk Ratio, % </Form.Label>
-            <Form.Control
-              type="number"
-              placeholder="1"
-              name="risk"
-              value={formulaire.risk}
-              onChange={handleChange}
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicStop">
-            <Form.Label>Stop-Loss, pips</Form.Label>
-            <Form.Control
-              type="number"
-              placeholder="50"
-              name="sl"
-              value={formulaire.sl}
-              onChange={handleChange}
-            />
-          </Form.Group>
-
-          <div className="d-flex justify-content-end">
-            <Button variant="primary" type="submit">
-              Calculate
-            </Button>
+        <div className="calculator-wrapper  my-5">
+          {/* Header Section */}
+          <div className="calculator-header lotsize">
+            <div className="header-icon">
+              <i className="bi bi-pie-chart-fill"></i>
+            </div>
+            <div className="header-content">
+              <h1 className="calculator-title">Lot Size Calculator</h1>
+              <p className="calculator-subtitle">
+                Calculate your optimal position size with precision
+              </p>
+            </div>
           </div>
-        </Form>
-      </div>
 
-      <ResultsLotSize
-        formulaire={formulaire}
-        result={result}
-        show={resultsShow}
-        onHide={() => setResultsShow(false)}
-      />
+          {/* Main Calculator Form */}
+          <div className="calculator-content">
+            <div className="calculator-form">
+              <div className="form-grid">
+                {/* Currency Pair Selection */}
+                <div className="form-group">
+                  <label className="form-label text-light">
+                    <i className="bi bi-currency-exchange"></i>
+                    Currency Pair
+                  </label>
+                  <div className="select-wrapper">
+                    <select
+                      name="pair"
+                      value={formulaire.pair}
+                      onChange={handleChange}
+                      className="form-select"
+                    >
+                      {pairs.map((pair, i) => (
+                        <option key={i} value={pair}>
+                          {pair}
+                        </option>
+                      ))}
+                    </select>
+                    <i className="bi bi-chevron-down select-arrow"></i>
+                  </div>
+                </div>
+
+                {/* Account Balance */}
+                <div className="form-group">
+                  <label className="form-label text-light">
+                    <i className="bi bi-wallet2"></i>
+                    Account Balance
+                  </label>
+                  <div className="input-wrapper">
+                    <span className="input-prefix">$</span>
+                    <input
+                      type="number"
+                      name="balance"
+                      value={formulaire.balance}
+                      onChange={handleChange}
+                      className="form-input"
+                      placeholder="100000"
+                      min="1"
+                    />
+                  </div>
+                </div>
+
+                {/* Risk Ratio */}
+                <div className="form-group">
+                  <label className="form-label text-light">
+                    <i className="bi bi-percent"></i>
+                    Risk Ratio
+                  </label>
+                  <div className="input-wrapper">
+                    <input
+                      type="number"
+                      name="risk"
+                      value={formulaire.risk}
+                      onChange={handleChange}
+                      className="form-input"
+                      placeholder="1"
+                      min="0.1"
+                      max="100"
+                      step="0.1"
+                    />
+                    <span className="input-suffix text-light">%</span>
+                  </div>
+                </div>
+
+                {/* Stop Loss */}
+                <div className="form-group">
+                  <label className="form-label text-light">
+                    <i className="bi bi-shield-x"></i>
+                    Stop-Loss
+                  </label>
+                  <div className="input-wrapper">
+                    <input
+                      type="number"
+                      name="sl"
+                      value={formulaire.sl}
+                      onChange={handleChange}
+                      className="form-input"
+                      placeholder="50"
+                      min="1"
+                    />
+                    <span className="input-suffix text-light">pips</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="form-actions">
+                <button
+                  type="button"
+                  className="btn-secondary"
+                  onClick={resetForm}
+                >
+                  <i className="bi bi-arrow-clockwise"></i>
+                  Reset
+                </button>
+                <button
+                  type="button"
+                  className="btn-primary"
+                  onClick={handleSubmit}
+                  disabled={isCalculating}
+                >
+                  {isCalculating ? (
+                    <>
+                      <div className="spinner"></div>
+                      Calculating...
+                    </>
+                  ) : (
+                    <>
+                      <i className="bi bi-calculator"></i>
+                      Calculate
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Results Section */}
+          {resultsShow && (
+            <div className="results-section">
+              <div className="results-header">
+                <h3>
+                  <i className="bi bi-graph-up-arrow"></i>
+                  Calculation Results
+                </h3>
+                <button
+                  className="close-btn"
+                  onClick={() => setResultsShow(false)}
+                >
+                  <i className="bi bi-x-lg"></i>
+                </button>
+              </div>
+
+              <div className="results-grid">
+                <div className="result-card">
+                  <div className="result-header">
+                    <i className="bi bi-exclamation-triangle-fill"></i>
+                    <span>Money at Risk</span>
+                  </div>
+                  <div className="result-value">
+                    ${result.moneyRisk.toFixed(2)}
+                  </div>
+                  <div className="result-description">
+                    Amount you could lose on this trade
+                  </div>
+                </div>
+
+                <div className="result-card">
+                  <div className="result-header">
+                    <i className="bi bi-pie-chart-fill"></i>
+                    <span>Optimal Lot Size</span>
+                  </div>
+                  <div className="result-value">
+                    {result.loteSize.toFixed(4)}
+                  </div>
+                  <div className="result-description">
+                    Recommended position size
+                  </div>
+                </div>
+              </div>
+
+              <div className="results-summary">
+                <div className="summary-header">
+                  <i className="bi bi-info-circle"></i>
+                  Trade Summary
+                </div>
+                <div className="summary-content">
+                  <div className="summary-row">
+                    <span>Pair:</span>
+                    <strong>{formulaire.pair}</strong>
+                  </div>
+                  <div className="summary-row">
+                    <span>Account Balance:</span>
+                    <strong>${formulaire.balance.toLocaleString()}</strong>
+                  </div>
+                  <div className="summary-row">
+                    <span>Risk Percentage:</span>
+                    <strong>{formulaire.risk}%</strong>
+                  </div>
+                  <div className="summary-row">
+                    <span>Stop Loss:</span>
+                    <strong>{formulaire.sl} pips</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
     </>
   );
 };
