@@ -1,41 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { features } from "../data/features";
+import { howItWorks } from "../data/howItWorks";
 
 const Home = () => {
-  // Mock navigation function for demo
-  const navigate = (path) => {
-    console.log(`Navigating to: ${path}`);
-    alert(`Would navigate to: ${path}`);
-  };
-
-  const features = [
-    {
-      icon: "bi-pie-chart-fill",
-      title: "Lot Size Calculator",
-      description:
-        "Calculate optimal position size based on your risk parameters",
-      path: "/lotsize",
-      color: "info",
-      gradient: "linear-gradient(135deg, #0d6efd, #6f42c1)",
-    },
-    {
-      icon: "bi-graph-up",
-      title: "Pips Calculator",
-      description: "Measure price movements in pips between two price points",
-      path: "/pips",
-      color: "success",
-      gradient: "linear-gradient(135deg, #198754, #20c997)",
-    },
-    {
-      icon: "bi-currency-dollar",
-      title: "Profit Calculator",
-      description: "Estimate potential profit/loss from your trades",
-      path: "/profit",
-      color: "warning",
-      gradient: "linear-gradient(135deg, #fd7e14, #dc3545)",
-    },
-  ];
-
   return (
     <>
       <div className="modern-trading-app">
@@ -166,29 +134,7 @@ const Home = () => {
             </div>
 
             <div className="row g-4">
-              {[
-                {
-                  step: "1",
-                  title: "Select Your Instrument",
-                  description:
-                    "Choose from forex pairs, commodities, or indices to get precise calculations.",
-                  icon: "bi-bullseye",
-                },
-                {
-                  step: "2",
-                  title: "Enter Your Parameters",
-                  description:
-                    "Input your account balance, risk percentage, and other trade details.",
-                  icon: "bi-gear-fill",
-                },
-                {
-                  step: "3",
-                  title: "Get Instant Results",
-                  description:
-                    "Receive precise calculations to optimize your trading strategy.",
-                  icon: "bi-lightning-fill",
-                },
-              ].map((step, index) => (
+              {howItWorks?.map((step, index) => (
                 <div className="col-md-4" key={index}>
                   <div className="step-card position-relative">
                     {/* Connecting Line */}
@@ -243,8 +189,6 @@ const Home = () => {
           </div>
         </section>
       </div>
-
-      
     </>
   );
 };

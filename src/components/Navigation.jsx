@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { socialLinks } from "../data/socialLinks";
 
 const Navigation = () => {
@@ -34,7 +34,7 @@ const Navigation = () => {
       <nav className="modern-nav">
         <div className="nav-container bg-transparent">
           {/* Logo and Brand */}
-          <a href="/" className="nav-brand">
+          <Link to="/" className="nav-brand">
             <div className="logo-container">
               <div className="logo-icon">
                 <i className="bi bi-graph-up-arrow"></i>
@@ -48,7 +48,7 @@ const Navigation = () => {
               <span className="brand-main">Trading</span>
               <span className="brand-sub">Calculator</span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation Links */}
           <div className={`nav-links ${isMenuOpen ? "nav-links-mobile" : ""}`}>

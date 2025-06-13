@@ -1,5 +1,5 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { Toaster } from "sonner";
 
 import Navigation from "./components/Navigation";
@@ -13,6 +13,13 @@ import Pips from "./components/Pips";
 import Profit from "./components/Profit";
 
 const App = () => {
+  const location = useLocation();
+
+  // scrool to top smooth
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [location]);
+
   return (
     <>
       <Navigation />

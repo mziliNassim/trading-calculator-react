@@ -53,6 +53,7 @@ const Pips = () => {
   };
 
   const handleSubmit = () => {
+    setResultsShow(false);
     if (checkFields()) {
       setIsCalculating(true);
 

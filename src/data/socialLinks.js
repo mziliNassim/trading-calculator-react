@@ -9,7 +9,7 @@ export const socialLinks = [
     icon: "bi-github",
     url: "https://github.com/mziliNassim",
     name: "GitHub",
-    color: "#333", // GitHub dark gray
+    color: "#ccc", // GitHub dark gray
   },
   {
     icon: "bi-instagram",
