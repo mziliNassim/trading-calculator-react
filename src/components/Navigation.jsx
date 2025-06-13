@@ -53,7 +53,7 @@ const Navigation = () => {
           {/* Desktop Navigation Links */}
           <div className={`nav-links ${isMenuOpen ? "nav-links-mobile" : ""}`}>
             <a
-              href="#"
+              href="/lotsize"
               className={`nav-link pointer ${
                 location.pathname === "/lotsize" ? "active" : ""
               }`}
@@ -68,7 +68,7 @@ const Navigation = () => {
             </a>
 
             <a
-              href="#"
+              href="/pips"
               className={`nav-link pointer ${
                 location.pathname === "/pips" ? "active" : ""
               }`}
@@ -83,7 +83,7 @@ const Navigation = () => {
             </a>
 
             <a
-              href="#"
+              href="/profit"
               className={`nav-link pointer ${
                 location.pathname === "/profit" ? "active" : ""
               }`}

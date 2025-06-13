@@ -63,6 +63,7 @@ const Footer = () => {
                   {socialLinks.map((social, index) => (
                     <a
                       key={index}
+                      rel="noreferrer"
                       target="_blank"
                       href={social.url}
                       className="social-link-footer"
